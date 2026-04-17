@@ -19,6 +19,11 @@ test("Xpath demo in playwright", async ({page}) => {
 
     const productscount:Number = await products.count();
     console.log("No of Add to cart button : ", productscount);
+    expect(productscount).toBeGreaterThan(0);
+
+    console.log("first add to cart product is: " , await products.first().textContent());
+    console.log("last add to cart product is: " , await products.last().textContent());
+    console.log("Any add to cart product is: " , await products.nth(3).textContent());
 
 })
  
